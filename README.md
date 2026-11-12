@@ -12,7 +12,7 @@ Deploy this folder as a static site. On GitHub Pages, publish the `main` branch 
 
 ## Tracking
 
-The `/tracking/` page documents events and shows the browser's latest 50 demo events. Events are emitted through `window.dataLayer`, `window.uetq`, and the `katsu:tracking` custom event. The browser log is not a delivery receipt from an analytics platform.
+The storefront does not expose a tracking playground or event-log page. Conversion tracking remains active behind the shopping and store journeys. Events are emitted through `window.dataLayer`, `window.uetq`, and the `katsu:tracking` custom event. The latest 50 demo events are also stored in the browser under the `katsu-events` local-storage key for developer inspection; this log is not a delivery receipt from an analytics platform.
 
 For Microsoft Advertising, set `UET_TAG_ID` in `config.js` to a dedicated test tag ID and republish. The shared script loads UET on every page. No external analytics tag loads until configured. Use test reporting only: all conversions and revenue are fictional. Establish any required consent behavior before enabling third-party tracking or adapting this into a production site.
 
@@ -30,4 +30,4 @@ UET event category is `katsu_demo`. The purchase event supplies `revenue_value` 
 
 Destination goal paths must include the GitHub Pages repository prefix, when applicable. Event-based purchase goals are preferable: directly visiting or refreshing a confirmation URL can trigger a destination goal without a new purchase. The purchase event is emitted once per latest order using a local-storage marker; this is not server-side deduplication or server-to-server conversion tracking.
 
-Local storage holds the shopping bag, latest demo order, and event log. Checkout requires working local storage. Product quantities are limited to 1–99. Clear the event log from the tracking page; use browser site-data settings to reset all demo state.
+Local storage holds the shopping bag, latest demo order, and event log. Checkout requires working local storage. Product quantities are limited to 1–99. Use browser site-data settings to reset all demo state.
